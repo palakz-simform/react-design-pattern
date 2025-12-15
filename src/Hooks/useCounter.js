@@ -1,0 +1,30 @@
+import { useState, useCallback } from 'react';
+
+/**
+ * Custom Hook: useCounter
+ * Provides counter state with increment and decrement functionality
+ */
+const useCounter = (initialValue = 0) => {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+
+  const decrement = useCallback(() => {
+    setCount((prev) => prev - 1);
+  }, []);
+
+  const reset = useCallback(() => {
+    setCount(initialValue);
+  }, [initialValue]);
+
+  return {
+    count,
+    increment,
+    decrement,
+    reset,
+  };
+};
+
+export default useCounter;
