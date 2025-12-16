@@ -3,6 +3,8 @@ import './App.css'
 import HOCExample from './HOC/Example'
 import HooksExample from './Hooks/Example'
 import CompoundExample from './Compound/Example'
+import ContainerPresentationExample from './ContainerPresentation/Example'
+import RenderPropsExample from './RenderProps/Example'
 
 function App() {
   const [activePattern, setActivePattern] = useState('HOC')
@@ -10,7 +12,9 @@ function App() {
   const patterns = [
     { name: 'HOC', component: HOCExample },
     { name: 'Hooks', component: HooksExample },
-    { name: 'Compound', component: CompoundExample }
+    { name: 'Compound', component: CompoundExample },
+    { name: 'Container/Presentation', component: ContainerPresentationExample },
+    { name: 'Render Props', component: RenderPropsExample }
   ]
 
   const activeComponent = patterns.find(p => p.name === activePattern)?.component
@@ -43,6 +47,12 @@ function App() {
         </div>
         <div style={{ display: activePattern === 'Compound' ? 'block' : 'none' }}>
           {CompoundExample({})}
+        </div>
+        <div style={{ display: activePattern === 'Container/Presentation' ? 'block' : 'none' }}>
+          {ContainerPresentationExample({})}
+        </div>
+        <div style={{ display: activePattern === 'Render Props' ? 'block' : 'none' }}>
+          {RenderPropsExample({})}
         </div>
       </main>
     </div>
